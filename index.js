@@ -42,7 +42,7 @@ app.post('/player/login/dashboard', (req, res) => {
 
     // Mengecek atau memproses data request
     console.log(requestData);
-    res.send(requestData);
+    // res.send(requestData);
 
     // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/dashboard.html');
