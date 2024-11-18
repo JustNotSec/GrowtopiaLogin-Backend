@@ -38,10 +38,10 @@ app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
 // Route untuk login dashboard
 app.post('/player/login/dashboard', (req, res) => {
     // Parsing data request
-    const requestData = req.body;
+    // const requestData = req.body;
 
     // Mengecek atau memproses data request
-    console.log(requestData);
+    res.send(`request: ${req.body}`);
 
     // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/dashboard.html');
