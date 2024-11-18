@@ -31,7 +31,28 @@ app.use(function (req, res, next) {
 app.use(express.json());
 app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
 
+// app.post('/player/login/dashboard', (req, res) => {
+//     res.sendFile(__dirname + '/public/html/dashboard.html');
+// });
+
 app.post('/player/login/dashboard', (req, res) => {
+    // Menyimpan data request dalam variabel data
+    const requestDataString = req.body.data; // Misalnya data dikirimkan dalam field `data`
+    
+    // Memisahkan data berdasarkan separator '|'
+    const requestData = {};
+    const fields = requestDataString.split('|');
+    fields.forEach(field => {
+        const [key, value] = field.split('=');
+        if (key && value) {
+            requestData[key.trim()] = value.trim();
+        }
+    });
+
+    // Sekarang requestData berisi pasangan key-value
+    console.log(requestData);
+
+    // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/dashboard.html');
 });
 
