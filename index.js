@@ -49,8 +49,8 @@ app.post('/player/login/dashboard', (req, res) => {
 
 app.all('/player/growid/login/validate', (req, res) => {
     const _token = req.body._token;
-    // const tankIDName = req.body.tankIDName;
-    // const tankIDPass = req.body.tankIDPass;
+    const tankIDName = req.body.tankIDName;
+    const tankIDPass = req.body.tankIDPass;
 
     const token = Buffer.from(
         `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
