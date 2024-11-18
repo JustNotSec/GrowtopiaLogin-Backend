@@ -42,7 +42,6 @@ app.post('/player/login/dashboard', (req, res) => {
 
     // Mengecek atau memproses data request
     console.log(requestData);
-    // res.send(requestData);
 
     // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/dashboard.html');
@@ -50,15 +49,15 @@ app.post('/player/login/dashboard', (req, res) => {
 
 app.all('/player/growid/login/validate', (req, res) => {
     const _token = req.body._token;
-    const tankIDName = req.body.tankIDName;
-    const tankIDPass = req.body.tankIDPass;
+    // const tankIDName = req.body.tankIDName;
+    // const tankIDPass = req.body.tankIDPass;
 
     const token = Buffer.from(
         `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
     ).toString('base64');
 
     res.send(
-        `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia"}`,
+        `{"status":"success","message":"Account Validated.","token":"","url":"","accountType":"growtopia"}`,
     );
 });
 
