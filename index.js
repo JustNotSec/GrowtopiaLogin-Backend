@@ -54,7 +54,7 @@ app.post('/player/validate/close', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-    res.send('Hello World!');
+    res.send('Login Function Is Connected!');
 });
 
 app.listen(5000, function () {
