@@ -57,6 +57,10 @@ app.get('/', function (req, res) {
     res.send('Login Function Is Connected!');
 });
 
+app.get('/dashboard', (req, res) => {
+    res.sendFile(__dirname + '/public/html/dashboard.html');
+});
+
 app.listen(5000, function () {
     console.log('Listening on port 5000');
 });
