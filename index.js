@@ -35,21 +35,12 @@ app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
 //     res.sendFile(__dirname + '/public/html/dashboard.html');
 // });
 
+// Route untuk login dashboard
 app.post('/player/login/dashboard', (req, res) => {
-    // Menyimpan data request dalam variabel data
-    const requestDataString = req.body.data; // Misalnya data dikirimkan dalam field `data`
-    
-    // Memisahkan data berdasarkan separator '|'
-    const requestData = {};
-    const fields = requestDataString.split('|');
-    fields.forEach(field => {
-        const [key, value] = field.split('=');
-        if (key && value) {
-            requestData[key.trim()] = value.trim();
-        }
-    });
+    // Parsing data request
+    const requestData = req.body;
 
-    // Sekarang requestData berisi pasangan key-value
+    // Mengecek atau memproses data request
     console.log(requestData);
 
     // Mengirimkan file dashboard setelah login
@@ -78,9 +69,9 @@ app.get('/', function (req, res) {
     res.send('Login Function Is Connected!');
 });
 
-app.get('/dashboard', (req, res) => {
-    res.sendFile(__dirname + '/public/html/dashboard.html');
-});
+// app.get('/dashboard', (req, res) => {
+//     res.sendFile(__dirname + '/public/html/dashboard.html');
+// });
 
 app.listen(5000, function () {
     console.log('Listening on port 5000');
