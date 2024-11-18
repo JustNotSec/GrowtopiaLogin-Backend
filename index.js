@@ -42,6 +42,7 @@ app.post('/player/login/dashboard', (req, res) => {
 
     // Mengecek atau memproses data request
     console.log(requestData);
+    res.send(requestData);
 
     // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/dashboard.html');
@@ -53,7 +54,7 @@ app.all('/player/growid/login/validate', (req, res) => {
     const tankIDPass = req.body.tankIDPass;
 
     const token = Buffer.from(
-        `_token=${_token}&tankID=${tankIDName}&tankIDPass=${tankIDPass}`,
+        `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
     ).toString('base64');
 
     res.send(
