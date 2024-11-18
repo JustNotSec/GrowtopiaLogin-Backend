@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Player Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Growtopia Private Server</h1>
+            <p>Please verify you're human to continue</p>
+            <form action="player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off" onsubmit="handleSubmit(event)">
+                <!-- <div class="g-recaptcha" data-sitekey="6LexlVMqAAAAAD5NqNroR4FjNvaMkpvz-VjgHrDt"></div> -->
+                <input name="_token" type="hidden" value=""/>
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+            <!-- Loader (hidden initially) -->
+            <div class="loader" id="loader" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle the form submission with delay
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent immediate form submission
+
+            // Show the loader and hide the form
+            document.querySelector(".loader").style.display = "block";
+            document.querySelector("form").style.display = "none";
+
+            // Add a delay of 2 seconds before submitting the form
+            setTimeout(function() {
+                // Submit the form after the delay
+                document.getElementById("verify").submit();
+            }, 2000); // 2000 milliseconds = 2 seconds delay
+        }
+    </script>
+</body>
+</html>
