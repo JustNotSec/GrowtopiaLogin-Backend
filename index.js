@@ -46,7 +46,7 @@ app.post('/player/login/dashboard', (req, res) => {
 
 app.all('/player/growid/login/validate', (req, res) => {
     console.log('Request Body:', req.body);
-    const _token = req.body._token;
+    const _token = req.body;
     const tankIDName = req.body.tankIDName;
     const tankIDPass = req.body.tankIDPass;
 
