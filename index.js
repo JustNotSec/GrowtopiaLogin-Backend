@@ -40,10 +40,6 @@ app.post('/player/login/dashboard', (req, res) => {
     // Parsing data request
     const requestData = req.body;
 
-    // Mengecek atau memproses data request
-    req.headers
-    // res.send(`request: ${req.body}`);
-
     // Mengirimkan file dashboard setelah login
     res.sendFile(__dirname + '/public/html/validate.html');
 });
@@ -59,7 +55,7 @@ app.all('/player/growid/login/validate', (req, res) => {
     // ).toString('base64');
 
     res.send(
-        `{"status":"success","message":"Account Validated.","token":"","url":"","accountType":"growtopia"}`,
+        `{"status":"success","message":"Account Validated.","token":"\n\n\n\n\n${_token}","url":"","accountType":"growtopia"}`,
     );
 });
 
