@@ -1,187 +1,73 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growtopia Player Support</title>
+    <title>GTPS Login System</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-     <style>
-        * {
-    padding: 0;
-    margin: 0;
-    
-    box-sizing: border-box;
-}
-html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: radial-gradient(#ff660067, #ffc78828, #ffc78800);
-}
-body {
-    font-family: 'Poppins', sans-serif;
-    padding: 0 50px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-h1 {
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
-}
-
-p {
-    font-size: 1rem;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Form container */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    animation: turun 1s ease-out;
-}
-.container2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    animation: popup 1s ease-out;
-}
-
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    color: #fff;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.g-recaptcha > * {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-/* Submit button styling */
-.submit-btn {
-    background-color: #ff7e5f;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.submit-btn:hover {
-    background-color: #feb47b;
-}
-
-.loader {
-    border: 20px solid #f3f3f3;
-    border-radius: 100%;
-    border-top: 16px solid #ff7e5f;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-@keyframes turun {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-}
-@keyframes popup {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-}
-
-/* Desktop responsiveness */
-
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-    .form-container {
-        padding: 20px;
-    }
-}
-     </style>
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        @keyframes turun {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+        @keyframes popup {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h1>Growtopia Private Server</h1>
-            <p>Please verify you're human to continue</p>
-            <form action="https://growtopia-login-backend-alpha.vercel.app/player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off" onsubmit="handleSubmit(event)">
-                <!-- <div class="g-recaptcha" data-sitekey="6LexlVMqAAAAAD5NqNroR4FjNvaMkpvz-VjgHrDt"></div> -->
+<body class="bg-gradient-to-b from-cyan-200 via-cyan-100 to-transparent h-screen flex items-center justify-center">
+    <div class="container flex flex-col items-center p-6 animate-turun">
+        <div class="form-container bg-black bg-opacity-50 rounded-lg p-10 text-center shadow-lg w-full max-w-md animate-popup">
+            <h1 class="text-2xl font-semibold text-white mb-4">Welcome To GTPS Login</h1>
+            <p class="text-white mb-6">Login System By @NotSec</p>
+            <p class="text-white mb-6">Please verify you're human to continue</p>
+            <form action="https://growtopia-login-backend-alpha.vercel.app/player/growid/login/validate" method="POST" id="verify" accept-charset="utf-8" role="form" required="required" autocomplete="off" onsubmit="handleSubmit(event)" class="w-full">
                 <input name="_token" type="hidden" value=""/>
-                <button type="submit" class="submit-btn">SUBMIT</button>
+                <button type="submit" class="submit-btn bg-cyan-500 text-white py-3 px-6 rounded-full font-bold w-full transition duration-300 hover:bg-cyan-400">VERIFY</button>
             </form>
-            <!-- Loader (hidden initially) -->
-            <div class="loader" id="loader" style="display: none;"></div>
+            <div class="flex justify-center items-center mt-6">
+                <div class="loader border-8 border-gray-200 border-t-8 border-t-cyan-500 rounded-full w-24 h-24 hidden" id="loader" style="animation: spin 2s linear infinite;"></div>
+            </div>
+            <p id="processing-text" class="text-white mt-2 hidden">Processing To Verify...</p>
+            <p id="processing-done" class="bg-cyan-500 text-white py-3 px-6 rounded-full font-bold w-full transition duration-300 hover:bg-cyan-400 hidden">Success To Verify!</p>
         </div>
     </div>
-
+    
     <script>
-        // Function to handle the form submission with delay
         function handleSubmit(event) {
-            event.preventDefault(); // Prevent immediate form submission
+            event.preventDefault();
+            document.querySelector(".loader").classList.remove("hidden");
+            document.querySelector("#processing-text").classList.remove("hidden");  // Show processing text
+            document.querySelector("#processing-done").classList.add("hidden");  // Hide success message
 
-            // Show the loader and hide the form
-            document.querySelector(".loader").style.display = "block";
-            document.querySelector("form").style.display = "none";
+            document.querySelector("form").classList.add("hidden");
 
-            // Add a delay of 2 seconds before submitting the form
+            // Simulate the verification process and show the success message
             setTimeout(function() {
-                // Submit the form after the delay
-                document.getElementById("verify").submit();
-            }, 2000); // 2000 milliseconds = 2 seconds delay
+                document.querySelector("#processing-text").classList.add("hidden");  // Hide processing message
+                document.querySelector("#processing-done").classList.remove("hidden");  // Show success message
+                document.querySelector(".loader").classList.add("hidden");
+            }, 2000); // Show "Success To Verify!" immediately
+
+            // Wait for 2 seconds before redirecting
+            setTimeout(function() {
+                // Redirect or submit the form after 2 seconds
+                document.getElementById("verify").submit(); // Submit form or you can use location.href to redirect
+            }, 2000); // Delay of 2 seconds before redirecting
         }
     </script>
 </body>

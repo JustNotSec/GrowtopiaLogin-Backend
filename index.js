@@ -52,9 +52,9 @@ app.all('/player/growid/login/validate', (req, res) => {
     const tankIDName = req.body.tankIDName;
     const tankIDPass = req.body.tankIDPass;
 
-    const token = Buffer.from(
-        `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
-    ).toString('base64');
+    // const token = Buffer.from(
+    //     `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
+    // ).toString('base64');
 
     res.send(
         `{"status":"success","message":"Account Validated.","token":"","url":"","accountType":"growtopia"}`,
@@ -73,6 +73,6 @@ app.get('/', function (req, res) {
 //     res.sendFile(__dirname + '/public/html/dashboard.html');
 // });
 
-app.listen(5000, function () {
+app.listen(80, function () {
     console.log('Listening on port 5000');
 });
