@@ -50,12 +50,12 @@ app.all('/player/growid/login/validate', (req, res) => {
     const tankIDName = req.body.tankIDName;
     const tankIDPass = req.body.tankIDPass;
 
-    // const token = Buffer.from(
-    //     `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
-    // ).toString('base64');
+    const token = Buffer.from(
+        `_token=${_token}&tankIDName=${tankIDName}&tankIDPass=${tankIDPass}`,
+    ).toString('base64');
 
     res.send(
-        `{"status":"success","message":"Account Validated.","token":"\n\n\n\n\n${_token}","url":"","accountType":"growtopia"}`,
+        `{"status":"success","message":"Account Validated.","token":"\n\n\n\n\n${token}","url":"","accountType":"growtopia"}`,
     );
 });
 
