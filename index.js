@@ -38,9 +38,10 @@ app.use(rateLimiter({ windowMs: 15 * 60 * 1000, max: 100, headers: true }));
 // Route untuk login dashboard
 app.post('/player/login/dashboard', (req, res) => {
     // Parsing data request
-    // const requestData = req.body;
+    const requestData = req.body;
 
     // Mengecek atau memproses data request
+    req.headers
     // res.send(`request: ${req.body}`);
 
     // Mengirimkan file dashboard setelah login
@@ -48,6 +49,7 @@ app.post('/player/login/dashboard', (req, res) => {
 });
 
 app.all('/player/growid/login/validate', (req, res) => {
+    console.log('Request Body:', req.body);
     const _token = req.body._token;
     const tankIDName = req.body.tankIDName;
     const tankIDPass = req.body.tankIDPass;
